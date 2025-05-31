@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class movimentacao : MonoBehaviour
+public class movimento : MonoBehaviour
 {
     public float speed = 10;
     private Rigidbody2D rb;
-    private Vector2 movement;
+    private Vector2 moveInput;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,13 +16,13 @@ public class movimentacao : MonoBehaviour
     }
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        moveInput.x = moveInput.normalized;
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput = moveInput.normalized;
     }
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + moveInput * speed * Time.fixedDeltaTime);
     }
 
 }
