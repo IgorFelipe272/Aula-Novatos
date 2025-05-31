@@ -39,15 +39,3 @@ public class movimentacao : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-if (rb == null)
-{
-    Debug.Log("N tem Rigidbody2D");
-}
