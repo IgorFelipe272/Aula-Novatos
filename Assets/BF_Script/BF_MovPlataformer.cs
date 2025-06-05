@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class IF_Mov2 : MonoBehaviour
+public class BF_MovPlataformer : MonoBehaviour
 {
     [Header("Movimentacao")]
     public float speed = 5f;
@@ -32,7 +32,7 @@ public class IF_Mov2 : MonoBehaviour
     {
         // Entrada horizontal
         moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y); // Corrigido: era "linearVelocity"
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y); 
 
         // Flip do personagem
         if (moveInput != 0)
