@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFootPatrol : MonoBehaviour
+public class EnemyFootPatrol2 : MonoBehaviour
 {
     public Transform enemyTransform; // arraste o inimigo aqui no inspetor
     public Rigidbody2D enemyRb;      // arraste o Rigidbody2D do inimigo
