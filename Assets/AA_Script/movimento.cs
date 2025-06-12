@@ -40,7 +40,7 @@ public class movimento : MonoBehaviour
         // Flip do personagem
         
         if (moveInput != 0)
-        {
+         {
             Flip(moveInput);
         }
         
