@@ -6,11 +6,11 @@ public class playerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 10f;
 
-    [Header("Pulo Multiplo")]
+    [Header("Pulo")]
     public int quantidadeDePulosExtra = 2;
     private int pulosRestantes;
 
-    [Header("Verificacao de chao")]
+    [Header("Chao")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
@@ -30,20 +30,20 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        // Entrada horizontal
+        // horizontal
         moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y); // Corrigido: era "linearVelocity"
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y); 
 
-        // Flip do personagem
+        // flip
         if (moveInput != 0)
         {
             Flip(moveInput);
         }
 
-        // Verifica se esta no chao
+        // esta no chao?
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Resetar pulos ao tocar o ch�o
+        // resetar pulos
         if (isGrounded)
         {
             pulosRestantes = quantidadeDePulosExtra;
@@ -54,13 +54,13 @@ public class playerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             pulosRestantes--;
-            animator.SetBool("isJumping", !isGrounded); // Ativa animacao de pulo
+            animator.SetBool("isJumping", !isGrounded); 
         }
 
         // Atualizar par�metros do Animator
         animator.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
         animator.SetBool("isJumping", !isGrounded);
-        animator.SetFloat("yVelocity", rb.linearVelocity.y); // Para saber se esta subindo ou caindo
+        animator.SetFloat("yVelocity", rb.linearVelocity.y); 
     }
 
     void Flip(float direcao)
@@ -68,12 +68,4 @@ public class playerMovement : MonoBehaviour
         transform.localScale = new Vector3(Mathf.Sign(direcao), 1f, 1f);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
 }
