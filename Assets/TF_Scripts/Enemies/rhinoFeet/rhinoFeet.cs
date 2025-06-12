@@ -2,82 +2,62 @@ using UnityEngine;
 
 public class rhinoFeet : MonoBehaviour
 {
+    public float speed = 2f;
+    public Transform groundCheck;   // Checa chão à frente
+    public Transform wallCheck;     // Checa parede à frente
+    public float checkDistance = 1f;
+    public LayerMask groundLayer;
 
-    private Rigidbody2D rb;
-    private Animator anim;
-    private SpriteRenderer sr;
-    public float enemySpeed = 5f;
-    public int startDirection = 1;
-    private int currentDirection;
-    private float halfWidth;
-    private float halftHeight;
-    private Vector2 movement;
-    void Start()
+    private bool movingRight = true;
+
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-
-        halfWidth = sr.bounds.extents.x;
-        halftHeight = sr.bounds.extents.y;
-        currentDirection = startDirection;
+        Patrol();
     }
 
-
-    void FixedUpdate()
+    void Patrol()
     {
-        movement.x = enemySpeed * currentDirection;
-        movement.y = rb.linearVelocity.y;
-        rb.linearVelocity = movement;
-        setDirection();
-    }
+        // Move o inimigo
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-    private void setDirection()
-    {
-        Vector2 rightPos = transform.position;
-        Vector2 leftPos = transform.position;
-        rightPos.x += halftHeight;
-        leftPos.x += halfWidth;
+        // Raycast para detectar chão
+        bool noGround = !Physics2D.Raycast(groundCheck.position, Vector2.down, checkDistance, groundLayer);
 
-        if (rb.linearVelocity.x > 0)
+        // Raycast para detectar parede
+        Vector2 wallDirection = movingRight ? Vector2.right : Vector2.left;
+        bool wallDetected = Physics2D.Raycast(wallCheck.position, wallDirection, checkDistance, groundLayer);
+
+        if (noGround || wallDetected)
         {
-            if (Physics2D.Raycast(transform.position, Vector2.right, halfWidth + 0.1f, LayerMask.GetMask("groundLayer")))
-            {
-                currentDirection *= -1;
-                flip();
-            }
-            else if (!Physics2D.Raycast(rightPos, Vector2.down, halftHeight + 0.1f, LayerMask.GetMask("groundLayer")))
-            {
-                currentDirection *= -1;
-                flip();
-
-            }
+            Flip();
         }
-        else if (rb.linearVelocity.x < 0)
-        {
-            if (Physics2D.Raycast(transform.position, Vector2.left, halfWidth + 0.1f, LayerMask.GetMask("groundLayer")))
-            {
-                currentDirection *= -1;
-                flip();
-            }
-            else if (!Physics2D.Raycast(leftPos, Vector2.down, halftHeight + 0.1f, LayerMask.GetMask("groundLayer")))
-            {
-                currentDirection *= -1;
-                flip();
-
-            }
-        }
-
-
-        Debug.DrawRay(transform.position, Vector2.right * (halfWidth + 0.1f), Color.red);
-        Debug.DrawRay(transform.position, Vector2.left * (halfWidth + 0.1f), Color.red);
-        Debug.DrawRay(transform.position, Vector2.down * (halfWidth + 0.1f), Color.red);
     }
 
-    private void flip()
+    void Flip()
     {
+        // Inverte direção
+        movingRight = !movingRight;
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+
+        // Inverte o movimento
+        speed *= -1;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * checkDistance);
+        }
+
+        if (wallCheck != null)
+        {
+            Gizmos.color = Color.blue;
+            Vector3 dir = movingRight ? Vector3.right : Vector3.left;
+            Gizmos.DrawLine(wallCheck.position, wallCheck.position + dir * checkDistance);
+        }
     }
 }
