@@ -13,6 +13,8 @@ public class rhinoFeet : MonoBehaviour
     void Update()
     {
         Patrol();
+        Debug.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * checkDistance, Color.red);
+        Debug.DrawLine(wallCheck.position, wallCheck.position + (movingRight ? Vector3.right : Vector3.left) * checkDistance, Color.blue);
     }
 
     void Patrol()
@@ -45,19 +47,4 @@ public class rhinoFeet : MonoBehaviour
         speed *= -1;
     }
 
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * checkDistance);
-        }
-
-        if (wallCheck != null)
-        {
-            Gizmos.color = Color.blue;
-            Vector3 dir = movingRight ? Vector3.right : Vector3.left;
-            Gizmos.DrawLine(wallCheck.position, wallCheck.position + dir * checkDistance);
-        }
-    }
 }
