@@ -7,6 +7,8 @@ public class EnemyFootPatrol : MonoBehaviour
     public float moveSpeed = 2f;
     public LayerMask groundLayer;
 
+    public LayerMask wallLayer;
+
     private bool isGrounded = true;
     private Vector2 moveDirection = Vector2.right;
 
@@ -31,6 +33,13 @@ public class EnemyFootPatrol : MonoBehaviour
         if (((1 << collision.gameObject.layer) & groundLayer) != 0)
         {
             Flip();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & wallLayer) != 0)
+        {
+             Flip();
         }
     }
 
