@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JB_Script : MonoBehaviour
+public class IF_Mov2 : MonoBehaviour
 {
     [Header("Movimentacao")]
     public float speed = 5f;
