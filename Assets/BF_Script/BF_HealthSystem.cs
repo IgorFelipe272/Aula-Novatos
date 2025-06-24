@@ -4,15 +4,68 @@ using UnityEngine.SceneManagement;
 
 public class BF_HealthSystem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int vida = 5;
+    public float tempoInvencibilidade = 1.5f;
+
+    private bool estaInvencivel = false;
+
+    [Header("Refer?ncia para a UI de vida")]
+    public BF_LifeUIController uiController;
+
+    public void TakeDamage(int amount)
     {
-        
+        if (estaInvencivel)
+            return;
+
+        vida -= amount;
+        Debug.Log("Tomou dano! Vida restante: " + vida);
+
+        // Atualiza a UI aqui se o objeto for o jogador
+        if (CompareTag("Player") && uiController != null)
+        {
+            uiController.AtualizarCoracoes();
+        }
+
+        if (vida <= 0)
+        {
+            Debug.Log("Player morreu!");
+            // L?gica de morte aqui
+
+            if (CompareTag("Player"))
+            {
+                // L?gica especial para o jogador
+                // Exemplo: desabilitar controle, tocar anima??o, recarregar cena, etc.
+                Debug.Log("Player morreu! Aqui voc? pode chamar anima??o ou reiniciar a fase.");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                // Se n?o for o jogador, destr?i o objeto
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            StartCoroutine(Invencibilidade());
+        }
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Invencibilidade()
     {
-        
+        estaInvencivel = true;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        float elapsed = 0f;
+        while (elapsed < tempoInvencibilidade)
+        {
+            sr.enabled = !sr.enabled;
+            yield return new WaitForSeconds(0.1f);
+            elapsed += 0.1f;
+        }
+
+        sr.enabled = true;
+        estaInvencivel = false;
     }
 }
