@@ -35,7 +35,7 @@ public class rhinoFeet : MonoBehaviour
         }
     }
 
-    void Flip()
+    public void Flip()
     {
         // Inverte direção
         movingRight = !movingRight;
