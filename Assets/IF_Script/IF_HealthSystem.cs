@@ -54,6 +54,7 @@ public class IF_HealthSystem : MonoBehaviour
 
     }
 
+    /*
     private IEnumerator Invencibilidade()
     {
         estaInvencivel = true;
@@ -62,7 +63,9 @@ public class IF_HealthSystem : MonoBehaviour
         estaInvencivel = false;
     }
 
-    /*
+    */
+
+    
     private IEnumerator Invencibilidade()
     {
         estaInvencivel = true;
@@ -79,5 +82,5 @@ public class IF_HealthSystem : MonoBehaviour
         sr.enabled = true;
         estaInvencivel = false;
     }
-    */
+    
 }
