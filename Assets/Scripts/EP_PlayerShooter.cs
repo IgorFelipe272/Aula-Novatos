@@ -11,7 +11,7 @@ public class EP_PlayerShooter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Atirar();
         }
@@ -25,7 +25,7 @@ public class EP_PlayerShooter : MonoBehaviour
         if(rb != null)
         {
             float direcao = Mathf.Sign(transform.localScale.x);
-            rb.linearVelocity = new Vector2(direcao = velocidadeTiro, 0f);
+            rb.linearVelocity = new Vector2(direcao * velocidadeTiro, 0f);
 
             Vector3 escalaTiro = tiro.transform.localScale;
             escalaTiro.x *= direcao;

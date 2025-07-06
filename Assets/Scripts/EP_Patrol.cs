@@ -2,7 +2,7 @@
 
 public class EP_Patrol : MonoBehaviour
 {
-    public Rigidbody2D enemyRb;      // arraste o Rigidbody2D do inimigo
+    private Rigidbody2D enemyRb;      // arraste o Rigidbody2D do inimigo
     public float moveSpeed = 2f;
 
     public BoxCollider2D pe;

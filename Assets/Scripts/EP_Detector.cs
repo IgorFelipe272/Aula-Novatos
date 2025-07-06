@@ -12,15 +12,15 @@ public class EP_Detector : MonoBehaviour
     [Header("Layer que o detector considera como chão/parede")]
     public LayerMask groundLayer;
 
-    public void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isFoot && IsInLayerMask(other.gameObject.layer, groundLayer))
+        if (isFront && IsInLayerMask(other.gameObject.layer, groundLayer))
         {
             inimigo.Flip();
         }
     }
 
-    public void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (isFoot && IsInLayerMask(other.gameObject.layer, groundLayer))
         {

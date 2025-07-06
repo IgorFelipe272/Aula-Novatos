@@ -49,9 +49,9 @@ public class EP_Hit : MonoBehaviour
 
         if (mov != null)
         {
-            mov.enable = false;
+            mov.enabled = false;
             yield return new WaitForSeconds(duracaoControleDesativado);
-            mov.enable = true;
+            mov.enabled = true;
         }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class EP_HealthSystem : MonoBehaviour
 {
-    public int vida = 5;
+    public int vidaMax = 5;
+    public int vidaAtual = 5;
     public float tempoInvencibilidade = 1.5f;
 
     private bool estaInvencivel = false;
@@ -17,15 +18,15 @@ public class EP_HealthSystem : MonoBehaviour
         if (estaInvencivel)
             return;
 
-        vida -= amount;
-        Debug.Log("Tomou dano! Vida restante: " + vida);
+        vidaAtual -= amount;
+        Debug.Log("Tomou dano! Vida restante: " + vidaAtual);
 
         if(CompareTag("Player") && uiController != null)
         {
             uiController.AtualizarCoroes();
         }
 
-        if(vida <= 0)
+        if(vidaAtual <= 0)
         {
             Debug.Log("Player morreu!");
 

@@ -19,8 +19,8 @@ public class EP_LifeUIController : MonoBehaviour
 
     public void AtualizarCoroes()
     {
-        int maxvidas = healthSystem.vida;
-        int vidasAtuais = healthSystem.vida;
+        int maxvidas = healthSystem.vidaMax;
+        int vidasAtuais = healthSystem.vidaAtual;
 
         foreach(GameObject heart in heartObjects)
         {
