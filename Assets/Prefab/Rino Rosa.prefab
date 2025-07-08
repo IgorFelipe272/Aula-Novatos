@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 5094495609290944443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2681619, y: 5.100756, z: 0}
+  m_LocalPosition: {x: 1.273, y: 5.105, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -253,7 +253,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.07260114, y: -0.12986565}
+  m_Offset: {x: 0.012292385, y: -0.14610267}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -263,7 +263,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.4417882, y: 1.4944038}
+  m_Size: {x: 2.3211708, y: 1.4619298}
   m_EdgeRadius: 0
 --- !u!95 &7976755434723853675
 Animator:
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7025085129222398782}
   - component: {fileID: 2646251937313981935}
-  - component: {fileID: 4956265675788311851}
+  - component: {fileID: 289858771388530150}
   m_Layer: 0
   m_Name: Dano
   m_TagString: Untagged
@@ -344,8 +344,8 @@ Transform:
   m_GameObject: {fileID: 6994986880137347862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.548, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.576, y: -0.056, z: 0}
+  m_LocalScale: {x: 7.4882812, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2190322921080210085}
@@ -384,7 +384,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.33773088, y: -0.07505131}
+  m_Offset: {x: 0.34049922, y: -0.0043740273}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -394,9 +394,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.32453823, y: 1.4202862}
+  m_Size: {x: 0.37998807, y: 1.5616407}
   m_EdgeRadius: 0
---- !u!114 &4956265675788311851
+--- !u!114 &289858771388530150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,9 +409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dano: 1
-  knockbackForce: 5
-  knockbackDelay: 1
-  patrol: {fileID: 7365688336898735715}
+  knockbackForce: 10
+  knockbackDelay: 0.5
 --- !u!1 &7662292841457766302
 GameObject:
   m_ObjectHideFlags: 0

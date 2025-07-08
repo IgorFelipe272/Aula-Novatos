@@ -3,19 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Plataforma
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DetectorInimigo
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Bala
+  - PlayerDetector
+  - ProjetilBoss
+  - Dano
   - 
   - 
   - 
