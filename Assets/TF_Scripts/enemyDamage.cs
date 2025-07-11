@@ -12,7 +12,6 @@ public class enemyDamage : MonoBehaviour
             if (health != null)
             {
                 health.takeDamage(dano);
-                health.uiController.AtualizarCores();
             }
         }
     }

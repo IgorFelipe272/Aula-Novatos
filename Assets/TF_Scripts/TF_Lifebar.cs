@@ -14,10 +14,6 @@ public class TF_Lifebar : MonoBehaviour
     {
         AtualizarCores();
     }
-    void Update()
-    {
-        
-    }
     
     public void AtualizarCores()
     {

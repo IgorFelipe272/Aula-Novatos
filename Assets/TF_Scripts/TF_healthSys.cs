@@ -7,20 +7,25 @@ public class TF_healthSys : MonoBehaviour
     public int vida = 5;
     public float tempoInvencivel = 2f;
     private bool invencivel = false;
+    public playerMovement movimento;
 
    [Header("Referencia para UI de vida")]
    public TF_Lifebar uiController;
 
     public void takeDamage(int dano)
     {
-        if (invencivel) return;
-        
+       
 
+        if (invencivel || (movimento != null && movimento.IsDashing()))
+            return;
+        
+        vida -= dano;
+        
         if (CompareTag("Player") && uiController != null)
         {
             uiController.AtualizarCores();
-            
-            vida -= dano;
+
+
             Debug.Log("Vida atual: " + vida);
         }
 
