@@ -20,12 +20,7 @@ public class TF_bala : MonoBehaviour
                 alvo.takeDamage(dano);
             }
         }
-       
             Destroy(gameObject);
-        
-
-       
-        
     }
     
         

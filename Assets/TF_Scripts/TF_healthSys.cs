@@ -14,25 +14,27 @@ public class TF_healthSys : MonoBehaviour
     public void takeDamage(int dano)
     {
         if (invencivel) return;
-
-        vida -= dano;
-        Debug.Log("Vida atual: " + vida);
+        
 
         if (CompareTag("Player") && uiController != null)
         {
             uiController.AtualizarCores();
+            
+            vida -= dano;
+            Debug.Log("Vida atual: " + vida);
         }
 
 
 
         if (vida <= 0)
         {
-            Debug.Log("Morreu");
+
 
             if (CompareTag("Player"))
             {
                 Debug.Log("Game Over");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Debug.Log("Morreu");
             }
             else
             {
@@ -61,15 +63,5 @@ public class TF_healthSys : MonoBehaviour
         }
         spriteRenderer.enabled = true;
         invencivel = false;
-    }
-    void Start()
-    {
-
-    }
-
-
-    void Update()
-    {
-
     }
 }
