@@ -5,7 +5,7 @@ AssetOrigin:
   productId: 155418
   packageName: Pixel Adventure 2
   packageVersion: 1.0
-  assetPath: Assets/Pixel Adventure 2/Assets/Enemies/Trunk/Idle (64x32).png
+  assetPath: Assets/Art/Pixel Adventure 2/Assets/Enemies/Trunk/Idle (64x32).png
   uploadId: 332915
 TextureImporter:
   internalIDToNameTable:

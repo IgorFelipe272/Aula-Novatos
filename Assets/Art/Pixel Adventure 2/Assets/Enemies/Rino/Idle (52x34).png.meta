@@ -5,7 +5,7 @@ AssetOrigin:
   productId: 155418
   packageName: Pixel Adventure 2
   packageVersion: 1.0
-  assetPath: Assets/Pixel Adventure 2/Assets/Enemies/Rino/Idle (52x34).png
+  assetPath: Assets/Art/Pixel Adventure 2/Assets/Enemies/Rino/Idle (52x34).png
   uploadId: 332915
 TextureImporter:
   internalIDToNameTable:
@@ -88,7 +88,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
