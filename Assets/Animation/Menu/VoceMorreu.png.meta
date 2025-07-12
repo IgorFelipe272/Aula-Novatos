@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f49ff347e677fa641999af34093b7985
+guid: 283c06c3850c03247a77657b9016e285
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 461563522574813355
-    second: vecteezy_landscape-scene-silhouette-with-medieval-town_6591044-1_0
+      213: -6943450848473745884
+    second: VoceMorreu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vecteezy_landscape-scene-silhouette-with-medieval-town_6591044-1_0
+      name: VoceMorreu_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 958
+        x: 87
+        y: 57
+        width: 935
+        height: 866
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba8895c049dc76600800000000000000
-      internalID: 461563522574813355
+      spriteID: 4267655cd38e3af90800000000000000
+      internalID: -6943450848473745884
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 752596e46fc5c744a9d4953208f71dd6
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vecteezy_landscape-scene-silhouette-with-medieval-town_6591044-1_0: 461563522574813355
+      VoceMorreu_0: -6943450848473745884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class EP_Mov2 : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class EP_Mov2 : MonoBehaviour
     public float groundCheckRadius = 0.4f;
     public LayerMask groundLayer;
     private bool isGrounded;
+
+    [Header("Fundo de tela")]
+    public Transform Background;
 
     private Rigidbody2D rb;
     private float moveInput;
@@ -66,6 +70,8 @@ public class EP_Mov2 : MonoBehaviour
     void Flip(float direcao)
     {
         transform.localScale = new Vector3(Mathf.Sign(direcao), 1f, 1f);
+        Background.localScale = new Vector3(Mathf.Sign(direcao) * (1.439405f), 1.256892f, 1f);
+
     }
 
     private void OnDrawGizmosSelected()

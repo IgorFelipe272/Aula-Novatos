@@ -7,6 +7,7 @@ public class EP_HealthSystem : MonoBehaviour
     public int vidaMax = 5;
     public int vidaAtual = 5;
     public float tempoInvencibilidade = 1.5f;
+    static public int inimigo = 3;
 
     private bool estaInvencivel = false;
 
@@ -33,11 +34,16 @@ public class EP_HealthSystem : MonoBehaviour
             if(CompareTag("Player"))
             {
                 Debug.Log("Player morreu. Aqui você pode chamar animação ou reiniciar a fase.");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene("Death_Scene");
             }
             else
             {
                 Destroy(gameObject);
+                inimigo -= 1;
+            }
+            if(inimigo <= 0)
+            {
+                SceneManager.LoadScene("Win_Scene");
             }
         }
         else
