@@ -7,7 +7,8 @@ public class EP_HealthSystem : MonoBehaviour
     public int vidaMax = 5;
     public int vidaAtual = 5;
     public float tempoInvencibilidade = 1.5f;
-    static public int inimigo = 3;
+    static public int inimigo = 4;
+    public bool portaLiberada => inimigo <= 1;
 
     private bool estaInvencivel = false;
 
@@ -52,7 +53,7 @@ public class EP_HealthSystem : MonoBehaviour
         }
     }
 
-    private IEnumerator Invencibilidade()
+    public IEnumerator Invencibilidade()
     {
         estaInvencivel = true;
         yield return new WaitForSeconds(tempoInvencibilidade);
