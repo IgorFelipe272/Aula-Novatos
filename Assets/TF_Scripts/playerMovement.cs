@@ -13,22 +13,15 @@ public class playerMovement : MonoBehaviour
     public int quantidadeDePulosExtra = 1;
     private int pulosRestantes;
 
+    [Header("Coyote Time")]
+    public float coyoteTime = 0.15f;
+    private float coyoteTimeCounter;
+
     [Header("Chao")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     private bool isGrounded;
-
-    [Header("Parede (Wall Jump)")]
-    public Transform wallCheckLeft;
-    public Transform wallCheckRight;
-    public float wallCheckRadius = 0.2f;
-    public LayerMask wallLayer;
-    public float wallJumpForceX = 8f;
-    public float wallJumpForceY = 12f;
-    private bool isTouchingWallLeft;
-    private bool isTouchingWallRight;
-    private bool isWallJumping;
 
     [Header("Dash")]
     public float dashSpeed = 15f;
@@ -42,7 +35,8 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private Collider2D playerCollider;
-
+    [HideInInspector]
+    public bool canMove = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,7 +48,7 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-
+        if (!canMove) return;
         // horizontal
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
@@ -95,22 +89,28 @@ public class playerMovement : MonoBehaviour
         // esta no chao?
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // resetar pulos
+        // Coyote time logic
         if (isGrounded)
         {
+            coyoteTimeCounter = coyoteTime;
             pulosRestantes = quantidadeDePulosExtra;
             canDash = true;
         }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
-        // Pular
-        if (Input.GetButtonDown("Jump") && pulosRestantes > 0)
+        // Pular (Jump)
+        if (Input.GetButtonDown("Jump") && (coyoteTimeCounter > 0f || pulosRestantes > 0))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             pulosRestantes--;
+            coyoteTimeCounter = 0f;
             animator.SetBool("isJumping", !isGrounded);
         }
 
-        // Atualizar par�metros do Animator
+        // Atualizar parâmetros do Animator
         animator.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
         animator.SetBool("isJumping", !isGrounded);
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
@@ -126,6 +126,7 @@ public class playerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
         trailRenderer.emitting = false;
+        rb.linearVelocity = new Vector2(2f, 2f);
         ReactCol();
     }
     public bool IsDashing()

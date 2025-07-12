@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BOSS
   - Water
   - UI
   - groundLayer
-  - 
+  - BULLE
   - 
   - 
   - 

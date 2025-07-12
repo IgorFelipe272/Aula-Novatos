@@ -20,7 +20,7 @@ public class TF_hit : MonoBehaviour
         TF_healthSys healthSys = collision.GetComponent<TF_healthSys>();
         if (healthSys != null)
         {
-            healthSys.takeDamage(dano);
+            healthSys.takeDamage(dano, transform.position, GetComponent<Collider2D>());
         }
 
         Rigidbody2D playerrb = collision.GetComponent<Rigidbody2D>();

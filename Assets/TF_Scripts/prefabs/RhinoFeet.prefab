@@ -271,6 +271,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  resetTime: 0
 --- !u!114 &4537197541637120715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,9 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcdfd272f94d2746ac39108269eabe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 5
+  vida: 2
   tempoInvencivel: 1
   movimento: {fileID: 0}
+  knockbackForce: 10
+  knockbackDuration: 0.3
   uiController: {fileID: 0}
 --- !u!114 &576585800537154783
 MonoBehaviour:

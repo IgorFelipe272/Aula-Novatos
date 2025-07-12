@@ -4,9 +4,10 @@ public class TF_playerShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float ultimoTiro = 0f;
+    private float shootCD = 0f;
     public float bulletSpeed = 10f;
     public float cooldown = 0.5f; 
+    
 
     void Start()
     {
@@ -16,9 +17,14 @@ public class TF_playerShoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (shootCD > 0f)
         {
-            ultimoTiro = Time.time;
+            shootCD -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButtonDown(0) && shootCD <= 0f)
+        {
+            shootCD = cooldown;
             Shoot();
         }
     }
