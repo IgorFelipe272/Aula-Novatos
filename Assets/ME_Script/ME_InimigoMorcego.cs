@@ -64,7 +64,7 @@ public class ME_InimigoMorcego : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             timerEspera = tempoEsperaAntesDash;
-            posicaoDoDash = jogador.position;  // Salva posição do jogador
+            posicaoDoDash = jogador.position;  
             estadoAtual = Estado.Aguardando;
         }
     }

@@ -52,11 +52,11 @@ public class ME_MovPlataformer : MonoBehaviour
 
         if (isGrounded)
         {
-            coyoteTimeCounter = coyoteTime; // Resetar o contador de Coyote Time ao tocar no chão
+            coyoteTimeCounter = coyoteTime; // Resetar o contador de coyote se tocar no chao
         }
         else
         {
-            coyoteTimeCounter -= Time.deltaTime; // Decrementar o contador de Coyote Time
+            coyoteTimeCounter -= Time.deltaTime; // decrementar coyote
         }
 
         // Flip do personagem
@@ -110,7 +110,7 @@ public class ME_MovPlataformer : MonoBehaviour
                     Destroy(efeito, 0.3f);
 
                 }
-                coyoteTimeCounter = 0f; // Reseta o contador de Coyote Time após pular
+                coyoteTimeCounter = 0f; // Reseta o contador de Coyote após pular
             }
         }
 
@@ -164,7 +164,7 @@ public class ME_MovPlataformer : MonoBehaviour
 
         Vector3 screenPos = Camera.current.WorldToViewportPoint(transform.position);
         if (screenPos.z < 0 || screenPos.x < 0 || screenPos.x > 1 || screenPos.y < 0 || screenPos.y > 1)
-            return; // está fora da visão da câmera
+            return;
 
         if (groundCheck != null)
         {
@@ -176,6 +176,5 @@ public class ME_MovPlataformer : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + new Vector3(wallOfset.x, 0), wallRadius);
         Gizmos.DrawWireSphere(transform.position + new Vector3(-wallOfset.x, 0), wallRadius);
     }
-
 
 }

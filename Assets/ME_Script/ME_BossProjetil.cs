@@ -4,7 +4,7 @@ public class ME_BossProjetil : MonoBehaviour
 {
     public float velocidade = 5f;
     public int dano = 1;
-    public Vector2 direcao = Vector2.left; // Dire��o padr�o
+    public Vector2 direcao = Vector2.left;
 
     private Rigidbody2D rb;
 
