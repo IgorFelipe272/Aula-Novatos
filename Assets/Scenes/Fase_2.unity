@@ -547,6 +547,7 @@ MonoBehaviour:
   vidaMax: 5
   vidaAtual: 5
   tempoInvencibilidade: 1.5
+  estaInvencivel: 0
   uiController: {fileID: 1834351856}
 --- !u!114 &961688784
 MonoBehaviour:
@@ -584,6 +585,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Background: {fileID: 107611769}
+  healthSystem: {fileID: 0}
 --- !u!50 &961688786
 Rigidbody2D:
   serializedVersion: 5
@@ -3768,7 +3770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d60feb6e44150a49bb97615a182d5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiroPrefab: {fileID: 520885401593354568, guid: eb5503001190ee643af59ccdefcdc222, type: 3}
+  tiroPrefab: {fileID: 6989453197350366285, guid: eb5503001190ee643af59ccdefcdc222, type: 3}
   pontoDisparo: {fileID: 1447640496}
   velocidadeTiro: -5
 --- !u!61 &1395167433
@@ -3859,6 +3861,7 @@ MonoBehaviour:
   vidaMax: 20
   vidaAtual: 20
   tempoInvencibilidade: 0
+  estaInvencivel: 0
   uiController: {fileID: 1834351856}
 --- !u!1 &1447640495
 GameObject:

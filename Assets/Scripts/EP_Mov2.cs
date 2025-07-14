@@ -24,6 +24,7 @@ public class EP_Mov2 : MonoBehaviour
     private float moveInput;
 
     private Animator animator;
+    public EP_HealthSystem healthSystem;
 
     void Start()
     {
@@ -65,6 +66,7 @@ public class EP_Mov2 : MonoBehaviour
         animator.SetFloat("Velocidade", Mathf.Abs(moveInput));
         animator.SetBool("NoChao", isGrounded);
         animator.SetFloat("VelY", rb.linearVelocity.y); // Para saber se est� subindo ou caindo
+        animator.SetBool("Invencivel", healthSystem.estaInvencivel);
     }
 
     void Flip(float direcao)

@@ -10,7 +10,7 @@ public class EP_HealthSystem : MonoBehaviour
     static public int inimigo = 4;
     public bool portaLiberada => inimigo <= 1;
 
-    private bool estaInvencivel = false;
+    public bool estaInvencivel = false;
 
     [Header("Referência para a UI de vida")]
     public EP_LifeUIController uiController;
@@ -36,6 +36,7 @@ public class EP_HealthSystem : MonoBehaviour
             {
                 Debug.Log("Player morreu. Aqui você pode chamar animação ou reiniciar a fase.");
                 SceneManager.LoadScene("Death_Scene");
+                inimigo = 0;
             }
             else
             {

@@ -4232,6 +4232,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Background: {fileID: 1800712624}
+  healthSystem: {fileID: 1808000539}
 --- !u!50 &1808000533
 Rigidbody2D:
   serializedVersion: 5
@@ -4430,6 +4431,7 @@ MonoBehaviour:
   vidaMax: 5
   vidaAtual: 5
   tempoInvencibilidade: 1.5
+  estaInvencivel: 0
   uiController: {fileID: 1854857619}
 --- !u!224 &1854857618 stripped
 RectTransform:
